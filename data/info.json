@@ -1,0 +1,44 @@
+[
+    {
+        "testName": "Verify that authorized",
+        "method": "POST",
+        "url": "/Account/v1/Authorized",
+        "body": "",
+        "expectedStatus": 200,
+        "expectedMessage": true
+    },
+    {
+        "testName": "Verify that posts bearer token",
+        "method": "POST",
+        "url": "/Account/v1/GenerateToken",
+        "body": {
+            "userName": "usergs25",
+            "password": "Password@123"
+          },
+        "expectedStatus": 200,
+        "expectedMessage": {
+            "token": "xxxxxx",
+            "expires": "timestamp",
+            "status": "Success",
+            "result": "User authorized successfully."
+          }
+    },
+    {
+        "testName": "Verify that user can get list books",
+        "method": "GET",
+        "url": "/BookStore/v1/Books",
+        "body": "",
+        "expectedStatus": 200,
+        "expectedMessage":  {
+            "isbn": "9781593275846",
+            "title": "Eloquent JavaScript, Second Edition",
+            "subTitle": "A Modern Introduction to Programming",
+            "author": "Marijn Haverbeke",
+            "publish_date": "2014-12-14T00:00:00.000Z",
+            "publisher": "No Starch Press",
+            "pages": 472,
+            "description": "JavaScript lies at the heart of almost every modern web application, from social apps to the newest browser-based games. Though simple for beginners to pick up and play with, JavaScript is a flexible, complex language that you can use to build full-scale ",
+            "website": "http://eloquentjavascript.net/"
+          }
+    }
+]

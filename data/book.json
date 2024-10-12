@@ -1,0 +1,77 @@
+[
+    {
+        "testName": "Verify that user can add book 1",
+        "method": "POST",
+        "url": "/BookStore/v1/Books",
+        "body": {
+            "userId": "8504e8b7-4c83-47ad-b97b-48144366cbb2",
+            "collectionOfIsbns": [
+              {
+                "isbn": "9781491904244"
+              }
+            ]
+          },
+        "expectedStatus": 201,
+        "expectedMessage": {
+            "books": [
+              {
+                "isbn": "9781491904244"
+              }
+            ]
+          },
+          "afterTest": {
+            "testName": "Verify that user can delete book",
+            "method": "DELETE",
+            "url": "/BookStore/v1/Book",
+            "body": {
+                "isbn": "9781491904244",
+                "userId": "8504e8b7-4c83-47ad-b97b-48144366cbb2"
+              },
+            "expectedStatus": 204,
+            "expectedMessage": {}
+        }
+    },
+    {
+        "testName": "Verify that user can add book 2",
+        "method": "POST",
+        "url": "/BookStore/v1/Books",
+        "body": {
+            "userId": "8504e8b7-4c83-47ad-b97b-48144366cbb2",
+            "collectionOfIsbns": [
+              {
+                "isbn": "9781449331818"
+              }
+            ]
+          },
+        "expectedStatus": 201,
+        "expectedMessage": {
+            "books": [
+              {
+                "isbn": "9781449331818"
+              }
+            ]
+          },
+          "afterTest": {
+            "testName": "Verify that user can delete book",
+            "method": "DELETE",
+            "url": "/BookStore/v1/Book",
+            "body": {
+                "isbn": "9781449331818",
+                "userId": "8504e8b7-4c83-47ad-b97b-48144366cbb2"
+              },
+            "expectedStatus": 204,
+            "expectedMessage": {}
+        }
+    },
+    {
+        "testName": "Verify that user can delete book",
+        "method": "DELETE",
+        "url": "/users",
+        "body": {
+            "isbn": "9781449331818",
+            "userId": "8504e8b7-4c83-47ad-b97b-48144366cbb2"
+          },
+        "expectedStatus": 204,
+        "expectedMessage": ""
+    }
+]
